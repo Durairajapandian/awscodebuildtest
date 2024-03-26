@@ -2,7 +2,7 @@
 set -e
 
 # Pull the Docker image from Docker Hub
-echo
+docker pull 9677778749/python-application:latest2
 
 # Run the Docker image as a container
-echo
+docker run -d -p 5000:5000 9677778749/python-application:latest2
