@@ -22,8 +22,3 @@ phases:
       commands:
        - echo "Build is success"
   
-    artifacts:
-      files:
-        - '**/*'
-      base-directory: ./artifacts
-      
