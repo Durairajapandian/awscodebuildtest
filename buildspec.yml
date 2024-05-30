@@ -1,33 +1,37 @@
 version: 0.2
 
 env:
- parameter-store:
-      DOCKER_REGISTRY_USERNAME: /myapp/docker-credentials/username
-      DOCKER_REGISTRY_PASSWORD: /myapp/docker-credentials/password
-      DOCKER_REGISTRY_URL: /myapp/docker-credentials/docker_URL
+  parameter-store:
+    DOCKER_REGISTRY_USERNAME: /myapp/docker-credentials/username
+    DOCKER_REGISTRY_PASSWORD: /myapp/docker-credentials/password
+    DOCKER_REGISTRY_URL: /myapp/docker-credentials/docker_URL
+
 phases:
   install:
     runtime-versions:
       python: 3.11
+
   pre_build:
     commands:
       - pip install -r requirements.txt
+
   build:
     commands:
       - echo "Building Docker Image"
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
       - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/9677778749:latest" .
       - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/9677778749:latest"
-    post_build:
-      commands:
-       - echo "Build is success"
-  Artifacts:
-      Type: S3
-      Configuration:
-       BucketName: codepipeline-ap-south-1-215650211644
-       Path: Pipeline-CodeBuild/BuildArtif
-      Encryption:
-       Type: KMS
-       KmsKeyId: arn:aws:kms:ap-south-1:992382588644:alias/aws/s3
-       Name: MyArtifact
-        - echo "Artifact is stored"
+
+  post_build:
+    commands:
+      - echo "Build is success"
+
+artifacts:
+  type: S3
+  configuration:
+    bucket-name: codepipeline-ap-south-1-215650211644
+    path: Pipeline-CodeBuild/BuildArtif
+    encryption:
+      type: KMS
+      kms-key-id: arn:aws:kms:ap-south-1:992382588644:alias/aws/s3
+  name: MyArtifact
