@@ -19,5 +19,7 @@ if [ $(docker ps -q | wc -l) -gt 0 ]; then
 else
     echo "No containers running."
 
+fi
+
 # Run the Docker image as a container
 docker run -d -p 5000:5000 9677778749/9677778749
