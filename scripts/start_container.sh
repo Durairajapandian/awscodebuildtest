@@ -12,11 +12,5 @@ fi
 # Pull the Docker image from Docker Hub
 docker pull 9677778749/9677778749
 
->>>>>>> dde9e909f479d70e9a3b9375adb85daf7c3c1cab
-
-
-# Pull the Docker image from Docker Hub
-docker pull 9677778749/9677778749
-
 # Run the Docker image as a container
 docker run -d -p 5000:5000 9677778749/9677778749
