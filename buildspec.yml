@@ -29,5 +29,5 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: ../ubuntu/awscodebuildtest
+  base-directory: ./awscodebuildtest
   discard-paths: yes
