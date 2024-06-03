@@ -25,9 +25,9 @@ phases:
   post_build:
     commands:
       - echo "Build is success"
+      
 artifacts:
-    files:
-      - '**/*'
-    base-directory: 'New-Pyhton/BuildArtif*'
-    discard-paths: yes
-
+  files:
+    - '**/*'
+  base-directory: ../ubuntu/awscodebuildtest
+  discard-paths: yes
