@@ -26,10 +26,10 @@ phases:
     commands:
       - echo "Build is success"
 
-artifacts:
-  type: S3
-  configuration:
-    bucket-name: codepipeline-ap-south-1-215650211644
+  artifacts:
+    type: S3
+      configuration:
+      bucket-name: codepipeline-ap-south-1-215650211644
     path: Pipeline-CodeBuild/BuildArtif
     encryption:
       type: KMS
