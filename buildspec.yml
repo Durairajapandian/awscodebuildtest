@@ -25,13 +25,9 @@ phases:
   post_build:
     commands:
       - echo "Build is success"
+artifacts:
+    files:
+      - '**/*'
+    base-directory: 'New-Pyhton/BuildArtif*'
+    discard-paths: yes
 
-  artifacts:
-    type: S3
-      configuration:
-      bucket-name: codepipeline-ap-south-1-215650211644
-    path: Pipeline-CodeBuild/BuildArtif
-    encryption:
-      type: KMS
-      kms-key-id: arn:aws:kms:ap-south-1:992382588644:alias/aws/s3
-  name: MyArtifact
