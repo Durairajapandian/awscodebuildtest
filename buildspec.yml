@@ -29,4 +29,5 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: ../main
+  base-directory: ../awscodebuildtest
+
