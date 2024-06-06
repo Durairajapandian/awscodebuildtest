@@ -29,9 +29,4 @@ phases:
 artifacts:
   files:
     - appspec.yml
-    - build/*
-hooks:
-  AfterInstall:
-    - location: scripts/after_build_script.sh
-      timeout: 300
-      runas: root    
+    - awscodebuildtest/*
