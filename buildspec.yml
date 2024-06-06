@@ -28,6 +28,5 @@ phases:
       
 artifacts:
   files:
-    - '**/*'
-  base-directory: ./awscodebuildtest
-  discard-paths: yes
+    - appspec.yml
+    - build/*
